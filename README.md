@@ -42,7 +42,8 @@ A boolean that when true will suppress the grunt log output - only the TeamCity 
 
 #### options.status
 Type: `Object`
-Default value: ```js
+Default value:
+```js
 {
   warning: 'ERROR',
   failure: 'FAILURE',
@@ -50,7 +51,7 @@ Default value: ```js
 }
 ```
 
-A hash that maps grunt log message types to TeamCity service message statuses. Note that the TeamCity 'WARNING' status does not flag a task as failed.
+A hash that maps grunt log message types to [TeamCity service message statuses](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity#BuildScriptInteractionwithTeamCity-ReportingMessagesForBuildLog). Note that the TeamCity 'WARNING' status does not flag a task as failed.
 
 ### Usage Examples
 
