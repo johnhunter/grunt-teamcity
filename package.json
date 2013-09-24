@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:johnhunter/grunt-teamcity.git"
+    "url": "https://github.com/johnhunter/grunt-teamcity.git"
   },
   "bugs": {
     "url": ""
