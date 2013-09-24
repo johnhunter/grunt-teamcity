@@ -91,6 +91,14 @@ grunt.initConfig({
   }
 ```
 
+## Windows users
+
+Teamcity on windows does not flush the stdout stream before exiting the grunt node process. There has been some work around this in both nodejs and grunt, but it is by no means resolved. If you see missing output in your Teamcity build log then try running the grunt task using the TC command line runner by redirecting output to a file, e.g:
+```shell
+grunt default --no-color > grunt.tmp & type grunt.tmp & del grunt.tmp
+```
+Seems that by redirecting to a file the output is synchronous, whereas with pipe (or TC plugin execute method) the output is async and not captured before the node process exits.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
