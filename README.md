@@ -51,7 +51,7 @@ Default value:
 }
 ```
 
-A hash that maps grunt log message types to [TeamCity service message statuses](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity#BuildScriptInteractionwithTeamCity-ReportingMessagesForBuildLog). Note that the TeamCity 'WARNING' status does not flag a task as failed.
+A hash that maps grunt log message types to [TeamCity service message statuses](http://confluence.jetbrains.com/display/TCD8/Build+Script+Interaction+with+TeamCity#BuildScriptInteractionwithTeamCity-ReportingMessagesForBuildLog). Note that the TeamCity 'WARNING' status does not flag a task as failed.
 
 ### Usage Examples
 
@@ -90,7 +90,7 @@ grunt.initConfig({
 
 ## Windows users
 
-Teamcity on windows does not flush the stdout stream before exiting the grunt node process. There has been some work around this in both nodejs and grunt, but it is by no means resolved. If you see missing output in your Teamcity build log then try running the grunt task using the TC command line runner by redirecting output to a file, e.g:
+Teamcity on windows does not flush the stdout stream before exiting the grunt node process. There has been some work around this in both nodejs and grunt, but it is by no means resolved. If you see missing output in your Teamcity build log then try running the grunt task using the TC [command line runner](http://confluence.jetbrains.com/display/TCD8/Command+Line) by redirecting output to a file, e.g:
 ```shell
 grunt default --no-color > grunt.tmp & type grunt.tmp & del grunt.tmp
 ```
