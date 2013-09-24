@@ -56,15 +56,12 @@ A hash that maps grunt log message types to [TeamCity service message statuses](
 ### Usage Examples
 
 #### Default Options
-Default options are normally all you need. Make sure that you include the teamcity as the first task so that the messaging is setup for all subsequent tasks
+Default options are normally all you need so no config section is required. Make sure that you include the teamcity as the first task so that the messaging is setup for all subsequent tasks. In this example we run concat as the default task but set the teamcity logging first.
 
 ```js
 grunt.registerTask('default', ['teamcity', 'concat']);
 
 grunt.initConfig({
-  teamcity: {
-    options: {}
-  },
   concat: {
     //...
   }
