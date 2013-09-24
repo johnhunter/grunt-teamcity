@@ -1,0 +1,43 @@
+{
+  "name": "grunt-teamcity",
+  "description": "Send grunt log warnings in TeamCity service message format.",
+  "version": "0.1.0",
+  "homepage": "",
+  "author": {
+    "name": "John Hunter",
+    "email": "john.hunter@huddle.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:johnhunter/grunt-teamcity.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "teamcity"
+  ]
+}
