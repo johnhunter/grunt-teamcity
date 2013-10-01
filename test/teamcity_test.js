@@ -1,5 +1,7 @@
+/* global events, jshint node:true  */
 'use strict';
 
+var fs = require('fs');
 var grunt = require('grunt');
 
 /*
@@ -30,12 +32,22 @@ exports.teamcity = {
   default_options: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var child = grunt.util.spawn({
+      grunt: true,
+      args: ['teamcity', 'isolated_test', '--no-color'],
+      opts: {stdio: 'inherit'},
+    }, function(err, result){
+      // result.stdout is not flushed as it is not a TTY
+      test.equal(result.stdout, 'foo', 'Message contains foo');
+      test.done();
+    });
 
-    test.done();
-  },
+    console.log('child.stdout.isTTY: ', Boolean(child.stdout.isTTY)); // false
+    console.log('process.stdout.isTTY: ', Boolean(process.stdout.isTTY)); // true
+
+
+
+  }/*,
   custom_options: function(test) {
     test.expect(1);
 
@@ -44,5 +56,5 @@ exports.teamcity = {
     test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
 
     test.done();
-  },
+  },*/
 };
