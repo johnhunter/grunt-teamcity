@@ -30,23 +30,18 @@ exports.teamcity = {
     done();
   },
   default_options: function(test) {
-    test.expect(1);
+    var exec = require('child_process').exec,
+      child;
 
-    var child = grunt.util.spawn({
-      grunt: true,
-      args: ['teamcity', 'isolated_test', '--no-color'],
-      opts: {stdio: 'inherit'},
-    }, function(err, result){
-      // result.stdout is not flushed as it is not a TTY
-      test.equal(result.stdout, 'foo', 'Message contains foo');
+    test.expect(1);
+    exec('grunt teamcity isolated_test --no-color', function(err, stdout){
+      var res = stdout.split('\n').slice(4);
+
+      var firstLine = res.shift();
+      var index = firstLine.indexOf('foo-bar-uniqe-string');
+      test.ok(index > 0, 'foo', 'Message contains foo');
       test.done();
     });
-
-    console.log('child.stdout.isTTY: ', Boolean(child.stdout.isTTY)); // false
-    console.log('process.stdout.isTTY: ', Boolean(process.stdout.isTTY)); // true
-
-
-
   }/*,
   custom_options: function(test) {
     test.expect(1);

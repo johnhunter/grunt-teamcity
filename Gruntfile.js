@@ -64,7 +64,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('isolated_test', function(){
-    grunt.log.warn('foo');
+    grunt.log.warn('foo-bar-uniqe-string');
   });
-
 };
