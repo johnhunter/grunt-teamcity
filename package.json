@@ -2,17 +2,17 @@
   "name": "grunt-teamcity",
   "description": "Send grunt log warnings in TeamCity service message format.",
   "version": "0.1.1",
-  "homepage": "",
+  "homepage": "https://github.com/johnhunter/grunt-teamcity",
   "author": {
     "name": "John Hunter",
-    "email": "john.hunter@huddle.com"
+    "email": "john@johnhunter.info"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/johnhunter/grunt-teamcity.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/johnhunter/grunt-teamcity/issues"
   },
   "licenses": [
     {
