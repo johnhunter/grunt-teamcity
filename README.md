@@ -105,3 +105,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 - Make it a multitask
 - Add tests
 - Ready for publish to https://npmjs.org
+### v0.1.2
+- update readme and contact info
+
