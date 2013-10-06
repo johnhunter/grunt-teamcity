@@ -23,21 +23,23 @@ module.exports = function(grunt) {
       },
     },
 
-    // Before generating any new files, remove any previously-created files.
-    clean: {
-      tests: ['tmp'],
-    },
-
     // Configuration to be run (and then tested).
     teamcity: {
-      default_options: {
-        options: {}
-      },
-      custom_options: {
+      default_options: {},
+      suppress_gruntlog_options: {
         options: {
           suppressGruntLog: true
         }
       },
+      custom_status_mapping: {
+        options: {
+          status: {
+            warning: 'CUSTOM',
+            failure: 'CUSTOM',
+            error:   'CUSTOM'
+          }
+        }
+      }
     },
 
     // Unit tests.

@@ -14,7 +14,7 @@ var util = require('util');
 
 module.exports = function(grunt) {
 
-  grunt.registerTask('teamcity', 'Send log warnings in TeamCity service message format.', function() {
+  grunt.registerMultiTask('teamcity', 'Send log warnings in TeamCity service message format.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       suppressGruntLog: false,
