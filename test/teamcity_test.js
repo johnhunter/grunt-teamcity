@@ -69,5 +69,19 @@ exports.teamcity = {
       test.equal(tcMsgCount, 1, 'Message is output in Teamcity format with custom status');
       test.done();
     });
+  },
+  message_not_parsed_twice: function(test){
+    test.expect(1);
+    exec('grunt teamcity:default_options isolated_test_parse_twice --no-color', function(err, stdout){
+      var tcMsgCount = 0;
+      stdout.split('\n').forEach(function(line){
+        if (line.contains("##teamcity[message text='##teamcity['someMessage']' errorDetails='' status='ERROR'")) {
+          tcMsgCount++;
+        }
+      });
+
+      test.equal(tcMsgCount, 0, 'Teamcity messages are not parsed twice');
+      test.done();
+    });
   }
 };

@@ -68,4 +68,7 @@ module.exports = function(grunt) {
   grunt.registerTask('isolated_test', function(){
     grunt.log.warn('foo-bar-uniqe-string');
   });
+  grunt.registerTask('isolated_test_parse_twice', function(){
+    grunt.log.warn("##teamcity['someMessage']");
+  });
 };

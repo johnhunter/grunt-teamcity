@@ -73,9 +73,13 @@ module.exports = function(grunt) {
     }
 
     function tcFormat(text, status, errorDetails) {
-        return  ("##teamcity[message text='" + text +
-            "' errorDetails='" + (errorDetails || '') +
-            "' status='" + status + "']\n").grey;
+      if (text.indexOf('##teamcity[') !== -1) {
+        return text;
+      }
+
+      return  ("##teamcity[message text='" + text +
+        "' errorDetails='" + (errorDetails || '') +
+        "' status='" + status + "']\n").grey;
     }
 
     // verbatum from grunt.log
