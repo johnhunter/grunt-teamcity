@@ -29,8 +29,9 @@ grunt.initConfig({
   teamcity: {
     options: {
       // Task-specific options go here.
-    }
-  },
+    },
+    all: {}
+  }
 })
 ```
 
@@ -64,11 +65,12 @@ Default options are normally all you need so no config section is required. Make
 grunt.registerTask('default', ['teamcity', 'concat']);
 
 grunt.initConfig({
-  concat: {
-    //...
+  teamcity: {
+    all: {} // need a task even if its an empty one
   }
 })
 ```
+As grunt-teamcity is a multitask you need to define at least one subtask, e.g. `all`
 
 #### Custom Options
 In this example, custom options are used to turn off the normal grunt logs for warning, fail and error. We have also redefined the status hash to report grunt warnings as Teamcity warnings (so they don't cause the task to fail).
