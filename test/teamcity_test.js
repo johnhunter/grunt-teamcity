@@ -83,5 +83,35 @@ exports.teamcity = {
       test.equal(tcMsgCount, 0, 'Teamcity messages are not parsed twice');
       test.done();
     });
+  },
+  single_quote_escaping: function(test) {
+    test.expect(1);
+    exec('grunt teamcity:default_options isolated_test_single_quotes --no-color', function(err, stdout){
+      var tcMsgCount = 0;
+      stdout.split('\n').forEach(function(line){
+        console.log(line);
+        if (line.contains("##teamcity[message text='single|'quote' errorDetails='' status='ERROR'")) {
+          tcMsgCount++;
+        }
+      });
+
+      test.equal(tcMsgCount, 1, 'Single quotes are encoded');
+      test.done();
+    });
+  },
+  line_break_escaping: function(test) {
+    test.expect(1);
+    exec('grunt teamcity:default_options isolated_test_line_breaks --no-color', function(err, stdout){
+      var tcMsgCount = 0;
+      stdout.split('\n').forEach(function(line){
+        console.log(line);
+        if (line.contains("##teamcity[message text='new|n line' errorDetails='' status='ERROR'")) {
+          tcMsgCount++;
+        }
+      });
+
+      test.equal(tcMsgCount, 1, 'Line breaks are stripped');
+      test.done();
+    });
   }
 };

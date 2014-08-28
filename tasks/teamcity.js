@@ -77,9 +77,13 @@ module.exports = function(grunt) {
         return text;
       }
 
-      return  ("##teamcity[message text='" + text +
-        "' errorDetails='" + (errorDetails || '') +
-        "' status='" + status + "']\n").grey;
+      return  ("##teamcity[message text='" + escape(text) +
+        "' errorDetails='" + escape(errorDetails || '') +
+        "' status='" + escape(status) + "']\n").grey;
+    }
+
+    function escape(text){
+      return (text || '').replace("'","|'").replace("\n","|n").replace("\r","|r").replace("\f","|f");
     }
 
     // verbatum from grunt.log
