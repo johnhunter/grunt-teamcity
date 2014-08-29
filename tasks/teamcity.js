@@ -11,6 +11,7 @@
 
 // Nodejs libs.
 var util = require('util');
+var fs = require('fs');
 
 module.exports = function(grunt) {
 
@@ -66,9 +67,9 @@ module.exports = function(grunt) {
 
     function writeMsg (msg, status) {
       if (msg) {
-        process.stdout.write(tcFormat(msg, status));
+        writeSync(tcFormat(msg, status));
       } else {
-        process.stdout.write(tcFormat(status, status));
+        writeSync(tcFormat(status, status));
       }
     }
 
@@ -80,6 +81,10 @@ module.exports = function(grunt) {
       return  ("##teamcity[message text='" + text +
         "' errorDetails='" + (errorDetails || '') +
         "' status='" + status + "']\n").grey;
+    }
+
+    function writeSync(text){
+        fs.writeSync(process.stdout.fd,text);
     }
 
     // verbatum from grunt.log
