@@ -68,6 +68,13 @@ module.exports = function(grunt) {
   grunt.registerTask('isolated_test', function(){
     grunt.log.warn('foo-bar-uniqe-string');
   });
+  grunt.registerTask('isolated_test_single_quotes', function(){
+    grunt.log.warn("single'quote");
+  });
+  grunt.registerTask('isolated_test_line_breaks', function(){
+    grunt.log.warn("new\n line");
+  });
+
   grunt.registerTask('isolated_test_parse_twice', function(){
     grunt.log.warn("##teamcity['someMessage']");
   });
