@@ -2,7 +2,7 @@
 
 > Send gruntjs log warnings in TeamCity service message format.
 
-[![Build Status](https://travis-ci.org/johnhunter/grunt-teamcity.png)](https://travis-ci.org/johnhunter/grunt-teamcity)
+[![Build Status](https://travis-ci.org/johnhunter/grunt-teamcity.svg?branch=master)](https://travis-ci.org/johnhunter/grunt-teamcity)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
