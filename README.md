@@ -92,37 +92,6 @@ grunt.initConfig({
   }
 ```
 
-## Windows users
-
-*Note: Pull request [#5](https://github.com/johnhunter/grunt-teamcity/pull/5) from [akselsson](https://github.com/akselsson) resolves this issue.*
-
-Teamcity on windows does not flush the stdout stream before exiting the grunt node process. There has been some work around this in both nodejs and grunt, but it is by no means resolved. If you see missing output in your Teamcity build log then try running the grunt task using the the solution [documented here on StackOverflow](http://stackoverflow.com/questions/23841999/grunt-run-by-teamcity-does-not-properly-output-to-log)
-
-Seems that by redirecting to a file the output is synchronous, whereas with pipe (or TC plugin execute method) the output is async and not captured before the node process exits. The bat file captures the exit code from grunt and passes it onto Teamcity.
-
-*from http://stackoverflow.com/a/23844564/625200*
-```bat
-@echo off
-
-:: prepare environment
-setlocal enableextensions
-set "tempFile=%temp%\%~nx0.%random%.grunt.tmp"
-
-:: run grunt
-call grunt default --no-color > "%tempFile%"
-
-:: Keep the grunt exit code
-set "exitCode=%ERRORLEVEL%"
-
-:: Print the grunt output
-type "%tempFile%"
-
-:: cleanup and exit with adecuated value
-del /q "%tempFile%" >nul 2>nul
-endlocal & exit /b %exitCode%
-```
-
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
