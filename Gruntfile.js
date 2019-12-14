@@ -47,10 +47,6 @@ module.exports = function(grunt) {
       tests: ['test/*_test.js'],
     },
 
-    changelog: {
-      options: {}
-    }
-
   });
 
   // Actually load this plugin's task(s).
@@ -59,8 +55,11 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  grunt.loadNpmTasks('grunt-conventional-changelog');
-  grunt.loadNpmTasks('grunt-bump');
+
+  grunt.registerTask('foo', 'A sample task that logs stuff.', function (level) {
+    level = level || 'patch';
+    grunt.log.writeln(this.name + ":" + level);
+  });
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
