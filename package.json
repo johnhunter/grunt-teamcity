@@ -22,20 +22,20 @@
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 7.5.0"
   },
   "scripts": {
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.6.5",
-    "grunt-contrib-nodeunit": "~0.2.2",
-    "grunt": "~0.4.1",
-    "grunt-bump": "0.0.11",
-    "grunt-conventional-changelog": "~1.0.0"
+    "grunt-contrib-jshint": "~2.1.0",
+    "grunt-contrib-nodeunit": "~2.0.0",
+    "grunt": "~1.0.4",
+    "grunt-bump": "0.8.0",
+    "grunt-conventional-changelog": "~6.1.0"
   },
   "peerDependencies": {
-    "grunt": ">=0.4.0"
+    "grunt": ">=1.0.4"
   },
   "keywords": [
     "gruntplugin",
