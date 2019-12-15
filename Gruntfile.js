@@ -56,11 +56,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('foo', 'A sample task that logs stuff.', function (level) {
-    level = level || 'patch';
-    grunt.log.writeln(this.name + ":" + level);
-  });
-
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   grunt.registerTask('test', ['nodeunit']);
