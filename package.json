@@ -30,7 +30,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md package.json package-lock.json"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.2",
+    "auto-changelog": "^2.0.0",
     "grunt": "~1.0.4",
     "grunt-contrib-jshint": "~2.1.0",
     "grunt-contrib-nodeunit": "~2.1.0",
