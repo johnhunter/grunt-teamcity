@@ -1,6 +1,12 @@
 # grunt-teamcity
 
+[![Maintainers Wanted](https://img.shields.io/badge/maintainers-wanted-red.svg)](https://github.com/pickhardt/maintainers-wanted)
+
 > Send gruntjs log warnings in TeamCity service message format.
+
+**This package is no longer actively maintained**
+
+If you're interested in maintaining it please get in touch.
 
 [![Build Status](https://travis-ci.org/johnhunter/grunt-teamcity.svg?branch=master)](https://travis-ci.org/johnhunter/grunt-teamcity)
 
